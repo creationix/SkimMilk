@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: wmd-plus.js [RDoc Documentation]</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }<\/style>" )
+
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+  <div id="fileHeader">
+    <h1>wmd-plus.js</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>public/wmd/wmd-plus.js
+
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>2008-03-18 18:08:15 -0500</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+var Attacklab=Attacklab||{}; Attacklab.wmdPlus=function(){
+this.symboltable; var _1=top; var _2=_1[&#8220;Attacklab&#8221;]; var
+_3=_1[&#8220;document&#8221;]; var _4=_1[&#8220;RegExp&#8221;]; var
+_5=_1[&#8220;navigator&#8221;]; var _6=_2.Util; var _7=_2.Position; var
+_8=_2.Command; _8.doAutoindent=function(_9){
+_9.before=_9.before.replace(/(n|^)[ ]{0,3}([*+-]|d+[.])[
+t]*n$/,&#8220;n\n&#8220;); _9.before=_9.before.replace(/(n|^)[ ]{0,3}>[
+t]*n$/,&#8220;n\n&#8220;); _9.before=_9.before.replace(/(n|^)[
+t]+n$/,&#8220;n\n&#8220;); if(/(n|^)[ ]{0,3}([*+-]|d+[.])[
+t]+.*n$/.test(_9.before)){ if(_8.doList){ _8.doList(_9); } } if(/(n|^)[
+]{0,3}>[ t]+.*n$/.test(_9.before)){ if(_8.doBlockquote){
+_8.doBlockquote(_9); } } if(/(n|^)(t|[ ]{4,}).*n$/.test(_9.before)){
+if(_8.doCode){ _8.doCode(_9); } } }; _8.doBlockquote=function(_a){
+_a.selection=_a.selection.replace(/^(n*)([^r]+?)(n*)$/,function(_b,_c,_d,_e){
+_a.before+=_c; _a.after=_e+_a.after; return _d; });
+_a.before=_a.before.replace(/(>[ t]*)$/,function(_f,_10){
+_a.selection=_10+_a.selection; return &#8220;&#8221;; });
+_a.selection=_a.selection.replace(/^(s|>)+$/,&#8221;&#8220;);
+_a.selection=_a.selection||&#8220;Blockquote&#8221;; if(_a.before){
+_a.before=_a.before.replace(/n?$/,&#8220;n&#8220;); } if(_a.after){
+_a.after=_a.after.replace(/^n?/,&#8220;n&#8220;); }
+_a.before=_a.before.replace(/(((n|^)(n[ t]*)*>(.+n)<b>.</b>)+(n[
+t]*)*$)/,function(_11){ _a.startTag=_11; return &#8220;&#8221;; });
+_a.after=_a.after.replace(/^(((n|^)(n[ t]*)*>(.+n)<b>.</b>)+(n[
+t]*)*)/,function(_12){ _a.endTag=_12; return &#8220;&#8221;; }); var
+_13=function(_14){ var _15=_14?&#8221;> &#8220;:&#8221;&#8220;;
+if(_a.startTag){
+_a.startTag=_a.startTag.replace(/n((>|s)*)n$/,function(_16,_17){ return
+&#8220;n&#8220;+_17.replace(/^[ ]{0,3}>?[ t]*$/gm,_15)+&#8220;n&#8220;; });
+} if(_a.endTag){
+_a.endTag=_a.endTag.replace(/^n((>|s)*)n/,function(_18,_19){ return
+&#8220;n&#8220;+_19.replace(/^[ ]{0,3}>?[ t]*$/gm,_15)+&#8220;n&#8220;; });
+} }; if(/^(?![ ]{0,3}>)/m.test(_a.selection)){
+_8.wrap(_a,_2.wmd_env.lineLength-2);
+_a.selection=_a.selection.replace(/^/gm,&#8221;> &#8220;); _13(true);
+_a.skipLines(); }else{ _a.selection=_a.selection.replace(/^[ ]{0,3}>
+?/gm,&#8221;&#8220;); _8.unwrap(_a); _13(false); if(!/^(n|^)[
+]{0,3}>/.test(_a.selection)){ if(_a.startTag){
+_a.startTag=_a.startTag.replace(/n{0,2}$/,&#8220;n\n&#8220;); } }
+if(!/(n|^)[ ]{0,3}>.*$/.test(_a.selection)){ if(_a.endTag){
+_a.endTag=_a.endTag.replace(/^n{0,2}/,&#8220;n\n&#8220;); } } }
+if(!/n/.test(_a.selection)){ _a.selection=_a.selection.replace(/^(>
+*)/,function(_1a,_1b){ _a.startTag+=_1b; return &#8220;&#8221;; }); } };
+_8.doCode=function(_1c){ var _1d=/S[ ]*$/.test(_1c.before); var _1e=/^[
+]*S/.test(_1c.after); if((!_1e&amp;&amp;!_1d)||/n/.test(_1c.selection)){
+_1c.before=_1c.before.replace(/[ ]{4}$/,function(_1f){
+_1c.selection=_1f+_1c.selection; return &#8220;&#8221;; }); var _20=1; var
+_21=1; if(/n(t|[ ]{4,}).*n$/.test(_1c.before)){ _20=0; } if(/^n(t|[
+]{4,})/.test(_1c.after)){ _21=0; } _1c.skipLines(_20,_21);
+if(!_1c.selection){ _1c.startTag=&#8221; &#8220;;
+_1c.selection=&#8220;print("code sample");&#8221;; return; } if(/^[
+]{0,3}S/m.test(_1c.selection)){
+_1c.selection=_1c.selection.replace(/^/gm,&#8221; &#8220;); }else{
+_1c.selection=_1c.selection.replace(/^[ ]{4}/gm,&#8221;&#8220;); } }else{
+_1c.trimWhitespace(); _1c.findTags(/`/,/`/);
+if(!_1c.startTag&amp;&amp;!_1c.endTag){
+_1c.startTag=_1c.endTag=&#8221;`&#8221;; if(!_1c.selection){
+_1c.selection=&#8220;print("code sample");&#8221;; } }else{
+if(_1c.endTag&amp;&amp;!_1c.startTag){ _1c.before+=_1c.endTag;
+_1c.endTag=&#8221;&#8220;; }else{ _1c.startTag=_1c.endTag=&#8221;&#8220;; }
+} } }; _8.autoindent={}; _8.autoindent.textOp=_8.doAutoindent;
+_8.blockquote={}; _8.blockquote.description=&#8220;Blockquote
+<blockquote>&#8221;;
+_8.blockquote.image=&#8220;images/blockquote.png&#8220;;
+_8.blockquote.key=&#8221;.&#8221;; _8.blockquote.keyCode=190;
+_8.blockquote.textOp=function(_22){ return _8.doBlockquote(_22); };
+_8.code={}; _8.code.description=&#8220;Code Sample <pre><code>&#8221;;
+_8.code.image=&#8220;images/code.png&#8220;; _8.code.key=&#8220;k&#8221;;
+_8.code.textOp=_8.doCode; _8.img={}; _8.img.description=&#8220;Image
+<img>&#8221;; _8.img.image=&#8220;images/img.png&#8220;;
+_8.img.key=&#8220;g&#8221;; _8.img.textOp=function(_23,_24){ return
+_8.doLinkOrImage(_23,true,_24); }; _8.doList=function(_25,_26){ var
+_27=/(([ ]{0,3}([*+-]|d+[.])[ t]+.*)(\n.+|\n{2,}([*+-].*|\d+[.])[
+t]+.*|n{2,}[ t]+S.*)*)n*/; var _28=&#8221;&#8220;; var _29=1; var
+_2a=function(){ if(_26){ var _2b=&#8221; &#8220;<tt>_29</tt>&#8220;.
+&#8220;; _29++; return _2b; } var _2c=_28||&#8221;-&#8221;; return &#8220;
+&#8220;<tt>_2c</tt>&#8220; &#8220;; }; var _2d=function(_2e){
+if(_26==undefined){ _26=/^s*d/.test(_2e); } _2e=_2e.replace(/^[
+]{0,3}([*+-]|d+[.])s/gm,function(_2f){ return _2a(); }); return _2e; }; var
+_30=function(){ _31=_6.regexToString(_27);
+_31.expression=&#8221;^n*&#8221;+_31.expression; var
+_32=_6.stringToRegex(_31); _25.after=_25.after.replace(_32,_2d); };
+_25.findTags(/(n|^)*[ ]{0,3}([*+-]|d+[.])s+/,null); var _33=/^n/;
+if(_25.before&amp;&amp;!/n$/.test(_25.before)&amp;&amp;!_33.test(_25.startTag)){
+_25.before+=_25.startTag; _25.startTag=&#8221;&#8220;; } if(_25.startTag){
+var _34=/d+[.]/.test(_25.startTag); _25.startTag=&#8221;&#8220;;
+_25.selection=_25.selection.replace(/n[ ]{4}/g,&#8220;n&#8220;);
+_8.unwrap(_25); _25.skipLines(); if(_34){ _30(); } if(_26==_34){ return; }
+} var _35=1; var _31=_6.regexToString(_27);
+_31.expression=&#8221;(n|^)&#8220;<tt>_31.expression</tt>&#8220;$&#8221;;
+var _36=_6.stringToRegex(_31);
+_25.before=_25.before.replace(_36,function(_37){
+if(/^s*([*+-])/.test(_37)){ _28=_4.$1; } _35=/[^n]n\n[^n]/.test(_37)?1:0;
+return _2d(_37); }); if(!_25.selection){ _25.selection=&#8220;List
+item&#8221;; } var _38=_2a(); var _39=1; _31=_6.regexToString(_27);
+_31.expression=&#8221;^n*&#8221;+_31.expression; _36=_6.stringToRegex(_31);
+_25.after=_25.after.replace(_36,function(_3a){
+_39=/[^n]n\n[^n]/.test(_3a)?1:0; return _2d(_3a); });
+_25.trimWhitespace(true); _25.skipLines(_35,_39,true); _25.startTag=_38;
+var _3b=_38.replace(/./g,&#8221; &#8220;);
+_8.wrap(_25,_2.wmd_env.lineLength-_3b.length);
+_25.selection=_25.selection.replace(/n/g,&#8220;n&#8220;+_3b); };
+_8.doHeading=function(_3c){
+_3c.selection=_3c.selection.replace(/s+/g,&#8221; &#8220;);
+_3c.selection=_3c.selection.replace(/(^s+|s+$)/g,&#8221;&#8220;); var
+_3d=0; _3c.findTags(/#+[ ]*/,/[ ]*#+/); if(/#+/.test(_3c.startTag)){
+_3d=_4.lastMatch.length; } _3c.startTag=_3c.endTag=&#8221;&#8220;;
+_3c.findTags(null,/s?(-+|=+)/); if(/=+/.test(_3c.endTag)){ _3d=1; }
+if(/-+/.test(_3c.endTag)){ _3d=2; } _3c.startTag=_3c.endTag=&#8221;&#8220;;
+_3c.skipLines(1,1); if(!_3c.selection){ _3c.startTag=&#8221;## &#8220;;
+_3c.selection=&#8220;Heading&#8221;; _3c.endTag=&#8221; ##&#8221;; return;
+} var _3e=_3d==0?2:_3d-1; if(_3e){ var
+_3f=_3e>=2?&#8221;-&#8221;:&#8221;=&#8221;; var _40=_3c.selection.length;
+if(_40>_2.wmd_env.lineLength){ _40=_2.wmd_env.lineLength; }
+_3c.endTag=&#8220;n&#8220;; while(_40&#8212;){ _3c.endTag+=_3f; } } };
+_8.ol={}; _8.ol.description=&#8220;Numbered List <ol>&#8221;;
+_8.ol.image=&#8220;images/ol.png&#8220;; _8.ol.key=&#8220;o&#8221;;
+_8.ol.textOp=function(_41){ _8.doList(_41,true); }; _8.ul={};
+_8.ul.description=&#8220;Bulleted List <ul>&#8221;;
+_8.ul.image=&#8220;images/ul.png&#8220;; _8.ul.key=&#8220;u&#8221;;
+_8.ul.textOp=function(_42){ _8.doList(_42,false); }; _8.h1={};
+_8.h1.description=&#8220;Heading <h1>/<h2>&#8221;;
+_8.h1.image=&#8220;images/h1.png&#8220;; _8.h1.key=&#8220;h&#8221;;
+_8.h1.textOp=_8.doHeading; _8.hr={}; _8.hr.description=&#8220;Horizontal
+Rule <hr>&#8221;; _8.hr.image=&#8220;images/hr.png&#8220;;
+_8.hr.key=&#8220;r&#8221;; _8.hr.textOp=function(_43){
+_43.startTag=&#8221;&#8212;&#8212;&#8212;-n&#8220;;
+_43.selection=&#8221;&#8220;; _43.skipLines(2,1,true); }; };
+if(Attacklab.fileLoaded){ Attacklab.fileLoaded(&#8220;wmd-plus.js&#8220;);
+}
+</p>
+
+    </div>
+
+   </div>
+
+
+  </div>
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+    <!-- if method_list -->
+
+
+
+
+  </div>
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

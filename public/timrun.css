@@ -1,0 +1,24 @@
+#tim {
+  position : absolute;
+  width : 32px;
+  height : 32px;
+  background : url(common/img/tim.gif) no-repeat center;
+  left : 200px;
+  top : 127px;
+  margin-top:-159px;
+}
+#comment{
+  margin-top:-159px;
+  display:none;
+  position : absolute;
+  font-weight : bold;
+  font-size : 70%;
+  color : #222;
+  background-color: #fff;
+  border : 1px solid orange;
+  -moz-border-radius : 4px;
+  padding : 1px 4px 1px 4px;
+  left : 229px;
+  top : 120px;
+
+}

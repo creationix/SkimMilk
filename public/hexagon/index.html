@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+ <head>
+  <meta http-equiv="Page-Enter" content="blendTrans(duration=.5)">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <title>Hexagon: By Tim Caswell</title> 
+  <style>
+   body{
+    background:#000 url("../../img/watermark2.png") no-repeat center;
+    color#fff;
+    link:#0080ff
+    font-weight:bold;
+    font-family: sans-serif;
+    margin:0;
+    padding:0;
+    border:0;
+    behavior:url(csshover.htc);
+   }
+   fieldset {
+    display : block;
+    width : 43%;
+    float : left;
+    text-align:center;
+    margin-top : 10px;
+    margin-left:10px;
+    margin-right:10px;
+    background-color:#002;
+    padding-bottom : 10px;
+    -moz-border-radius : 8px;
+   }
+   fieldset.red{
+    background-color:#200;
+   }
+   fieldset.green{
+    background-color:#020;
+   }
+   legend {
+    font-size : 1.2em;
+    font-weight : bold;
+    color : #fff;
+    padding : 3px;
+    -moz-border-radius : 10px;
+    border : 3px solid #00f;
+    background: #003;
+   }
+   legend.red{
+    border : 3px solid #f00;
+    background: #300;
+   }
+   legend.green{
+    border : 3px solid #0f0;
+    background: #030;
+   }
+   label, .button{
+    border : 3px solid #888;
+    background: #333;
+    font-weight : bold;
+    color : #fff;
+    display : block;
+    float : left;
+    width : 35%;
+    margin : 10px;
+    padding : 2px 3px 4px; 3px;
+    -moz-border-radius : 20px;
+   }
+   label.green {
+    border : 3px solid #0a0;
+    background: #050;
+   }
+   label.red {
+    border : 3px solid #a00;
+    background: #500;
+   }
+   label.green:hover {
+    background:#181;
+    border-color: #0f0;
+   }
+   label.red:hover {
+    background:#811;
+    border-color: #f00;
+   }
+   label:hover, .button:hover{
+    background:#118;
+    border-color: #22f;
+   }
+   input {
+    display : block;
+    margin-left:auto;
+    margin-right:auto;
+    color : #33f;
+   }
+   h1 {
+    border : 0;
+    padding : 0;
+    margin : 0;
+    font-size:3.5em;
+    line-height: 2em;
+    font-variant : small-caps;
+    color : #08f;
+    text-align : center;
+   }
+   p{
+    text-align : center;
+    border : 0;
+    padding : 0;
+    margin : 0;
+    font-size:1.5em;
+    line-height : 1.2em;
+    font-weight : bold;
+    color : #eee;
+   {
+  </style>
+ </head>
+ <body>
+ <h1>Hexagon</h1>
+ <p>Originally created under Three Sharks Entertainment, now rebuilt and optimized for cross-browser fun by Creationix</p>
+  <form action="main.php" method="get">
+   <fieldset class="green">
+    <legend class="green">Player Green</legend>
+    <label for="player1_1" class="green">Human
+     <input id="player1_1" type="radio" name="player1" value="true" checked="checked" />
+    </label>
+    <label for="player1_2" class="green">Computer
+     <input id="player1_2" type="radio" name="player1" value="false" />
+    </label>   
+   </fieldset>
+   <fieldset class="red">
+    <legend class="red">Player Red</legend>
+    <label for="player2_1" class="red">Human
+     <input id="player2_1" type="radio" name="player2" value="true" />
+    </label>
+    <label for="player2_2" class="red">Computer
+     <input id="player2_2" type="radio" name="player2" value="false" checked="checked" />
+    </label>
+   </fieldset>
+   <fieldset>
+    <legend>Difficulty Level</legend>
+    <label for="easyness_1">Hard
+     <input id="easyness_1" type="radio" name="easyness" value="1" />
+    </label>
+    <label for="easyness_2">Normal
+     <input id="easyness_2" type="radio" name="easyness" value="2" checked="checked" />
+    </label>
+    <label for="easyness_3">Easy
+     <input id="easyness_3" type="radio" name="easyness" value="3" />
+    </label>
+    <label for="easyness_4">Piece of Cake
+     <input id="easyness_4" type="radio" name="easyness" value="4" />
+    </label>
+   </fieldset>
+   <fieldset>
+    <legend>First Player</legend>
+    <label for="firstPlayer_1" class="green">Green
+     <input id="firstPlayer_1" type="radio" name="firstPlayer" value="1" checked="checked" />
+    </label>
+    <label for="firstPlayer_2" class="red">Red
+     <input id="firstPlayer_2" type="radio" name="firstPlayer" value="2" />
+    </label>
+   </fieldset>
+   <fieldset>
+    <legend>Start Game</legend>
+    <input class="button" type="submit" value="Start Game!" />
+    <input class="button" type="reset" value="Set to Defaults" />
+   </fieldset>
+  </form>
+ </body>
+</html>

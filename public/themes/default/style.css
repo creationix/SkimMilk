@@ -1,0 +1,31 @@
+
+#content h1, #content h2, #content h3, #content h4, #content h5{
+ color : #0e3d73;
+}
+#content h1{
+ text-align : center;
+}
+#content dl {
+ display : block;
+ border : 2px dashed navy;
+}
+#content dl dt{
+ padding : 3px 10px 3px 10px;
+ background-color : #69c;
+ color : #fff;
+ font-weight : bold;
+}
+#content dl dd{
+ padding:10px;
+}
+#content hr{
+ width : 85%;
+ height : 2px;
+ background-color : navy;
+}
+#content li{
+ list-style : url(bullet.png);
+}
+#content li li{
+ list-style : url(bullet2.png);
+}

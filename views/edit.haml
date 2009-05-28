@@ -1,0 +1,31 @@
+
+%form{ :method => "post", :action => "/" + @page.title }
+  #toolbar{:class=>"ui-widget ui-widget-header"}
+    %button.toolitem#save_button{:title=>"Save changes and go to live page."}
+      %span{:class=>"ui-icon ui-icon-disk"}
+      Save
+    %button.toolitem#cancel_button{:title=>"Cancel changes and go to live page."}
+      %span{:class=>"ui-icon ui-icon-cancel"}
+      Cancel
+    %button.toolitem#delete_button{:title=>"Delete this page."}
+      %span{:class=>"ui-icon ui-icon-trash"}
+      Delete
+    %button.toolitem#versions_button{:title=>"Opens dialog where you can revert to a past version."}
+      %span{:class=>"ui-icon ui-icon-clock"}
+      Versions...
+
+  %input{ :type => "hidden", :name => "_method", :value => "put" }
+  %textarea{ :name => "markdown", :id=>"markdown", :style => "width:50%; float:left;", :rows => 25}&= @page.markdown || ""
+  #content{:class=>"wmd-preview"}= @page.html
+
+:javascript
+  $(".toolitem")
+    .addClass("ui-state-default ui-corner-all")
+    .hover(
+      function() { $(this).addClass('ui-state-hover'); },
+      function() { $(this).removeClass('ui-state-hover'); }
+    );  
+%script{ :src => "/wmd/wmd.js", :type => "text/javascript" }
+%script{ :src => "/scripts/edit.js", :type => "text/javascript" }
+
+

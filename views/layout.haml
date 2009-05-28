@@ -1,0 +1,201 @@
+!!! XML
+!!! Strict
+%html
+  %head
+    %title&= "TimMir.com - " + @title
+    %link{ :href => "/common/style.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }/
+    %link{ :href => "/common/timmir.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }/
+    :javascript
+      var theLogo;
+      var yPos = 159;
+      var xPos = 10;
+      var ldx = 0;
+      var width;
+
+      function moveLogo()
+      {
+        theLogo = getObj ("logo");
+
+        if ( theLogo )
+        {
+            showObj ( theLogo );
+            slideLogo();
+        }
+      }
+      function moveLogoOver()
+      {
+      width = document.body.clientWidth - theLogo.offsetWidth;
+      if (ldx == 0)
+       ldx = Math.round(Math.random()*7)-3;
+      else ldx = 0;
+      slideLogoOver();
+      }
+      function slideLogo()
+      {
+        yPos -= yPos/15 + 1;
+        if ( yPos > 0 )
+        {
+            moveObjTo( theLogo, xPos, yPos);
+            setTimeout( "slideLogo()", 40 );
+        }
+        else
+        {
+            moveObjTo( theLogo, 10, 0 );
+        }
+      }
+      function slideLogoOver()
+      {
+        xPos += ldx * 2;
+        if (xPos < 0) {xPos = 0;ldx=-ldx;}
+        if (xPos > width) {xPos = width;ldx=-ldx;}
+        moveObjTo( theLogo, xPos, yPos);
+        if (ldx !=0) setTimeout( "slideLogoOver()", 40 );
+      }
+      function showObj( obj )
+      {
+        if ( ! obj.style )
+            obj.display = "block";
+        else
+            obj.style.display = "block";
+      }
+      function hideObj( obj )
+      {
+        if ( ! obj.style )
+            obj.display = "none";
+        else
+            obj.style.display = "none";
+      }
+      function getObj (oid)
+      {
+      var obj;
+      if ( document.getElementById )
+          obj = document.getElementById(oid);
+      else if ( document.layers )
+          obj = document.layers[oid];
+      else if ( document.all )
+          obj = document.all.item(oid);
+      return obj;
+      }
+      function moveObjTo( obj, x, y )
+      {
+        if ( ! obj.style )
+        {
+            obj.top = y;
+            obj.left = x;
+        }
+        else
+        {
+            obj.style.top = y + "px";
+            obj.style.left = x + "px";
+        }
+      }
+      function setDivImage (obj, imge)
+      {    
+      value = ("url(" + imge + ")");
+      if ( ! obj.style ) 
+        obj.backgroundImage = value;
+      else 
+        obj.style.backgroundImage = value;
+      }
+  %body{:onload => "moveLogo()"}
+    :javascript
+      var theLogo;
+      var yPos = 159;
+      var xPos = 10;
+      var ldx = 0;
+      var width;
+
+      function moveLogo()
+      {
+          theLogo = getObj ("logo");
+
+          if ( theLogo )
+          {
+              showObj ( theLogo );
+              slideLogo();
+          }
+      }
+      function moveLogoOver()
+      {
+       width = document.body.clientWidth - theLogo.offsetWidth;
+       if (ldx == 0)
+         ldx = Math.round(Math.random()*7)-3;
+       else ldx = 0;
+       slideLogoOver();
+      }
+      function slideLogo()
+      {
+          yPos -= yPos/15 + 1;
+          if ( yPos > 0 )
+          {
+              moveObjTo( theLogo, xPos, yPos);
+              setTimeout( "slideLogo()", 40 );
+          }
+          else
+          {
+              moveObjTo( theLogo, 10, 0 );
+          }
+      }
+      function slideLogoOver()
+      {
+          xPos += ldx * 2;
+          if (xPos < 0) {xPos = 0;ldx=-ldx;}
+          if (xPos > width) {xPos = width;ldx=-ldx;}
+          moveObjTo( theLogo, xPos, yPos);
+          if (ldx !=0) setTimeout( "slideLogoOver()", 40 );
+      }
+        function showObj( obj )
+      {
+          if ( ! obj.style )
+              obj.display = "block";
+          else
+              obj.style.display = "block";
+      }
+        function hideObj( obj )
+      {
+          if ( ! obj.style )
+              obj.display = "none";
+          else
+              obj.style.display = "none";
+      }
+        function getObj (oid)
+      {
+        var obj;
+        if ( document.getElementById )
+            obj = document.getElementById(oid);
+        else if ( document.layers )
+            obj = document.layers[oid];
+        else if ( document.all )
+            obj = document.all.item(oid);
+        return obj;
+      }
+        function moveObjTo( obj, x, y )
+      {
+          if ( ! obj.style )
+          {
+              obj.top = y;
+              obj.left = x;
+          }
+          else
+          {
+              obj.style.top = y + "px";
+              obj.style.left = x + "px";
+          }
+      }
+        function setDivImage (obj, imge)
+      {    
+        value = ("url(" + imge + ")");
+        if ( ! obj.style ) 
+          obj.backgroundImage = value;
+        else 
+          obj.style.backgroundImage = value;
+      }
+    #header
+      #logo{:onclick => "moveLogoOver();"}
+    #page
+      #menu
+        %a{:href=>"/"} Home
+        %a{:href=>"/Games/"} Games
+      #content= yield
+      #footer
+        %p &copy; 2009 Tim Caswell - Email questions about website to Tim at creationix dot com.

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: layout.haml [RDoc Documentation]</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }<\/style>" )
+
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+  <div id="fileHeader">
+    <h1>layout.haml</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>views/layout.haml
+
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>2009-04-14 20:45:07 -0500</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+!!! XML !!! Strict %html
+</p>
+<pre>
+  %head
+    %link{ :rel =&gt; &quot;shortcut icon&quot;, :href =&gt; &quot;/favicon.ico&quot;, :type =&gt; &quot;image/x-icon&quot; }/
+    %link{ :href =&gt; &quot;/themes/default/style.css&quot;, :media =&gt; &quot;screen&quot;, :rel =&gt; &quot;stylesheet&quot;, :type =&gt; &quot;text/css&quot; }/
+    %link{ :href =&gt; &quot;/themes/default/layout.css&quot;, :media =&gt; &quot;screen&quot;, :rel =&gt; &quot;stylesheet&quot;, :type =&gt; &quot;text/css&quot; }/
+    %title&amp;= &quot;Creationix - &quot; + @page.title
+  %body
+    #page
+      #content
+        %h1#mainheading&amp;= @page.title
+        %p#welcome Welcome Visitor
+        #menu
+          %ul.mainmenu
+            %li.trail
+              %a{ :href =&gt; &quot;/&quot; } Home
+            %li.trail
+              %a{ :href =&gt; &quot;/Games&quot; } Games
+            %li.trail
+              %a{ :href =&gt; &quot;/OpenSource&quot; } OpenSource
+            %li.trail
+              %a{ :href =&gt; &quot;/Portfolio&quot; } Portfolio
+        = yield
+      #footer
+        %p
+          &amp;copy; 2009 Tim Caswell -
+          %a{ :href =&gt; &quot;http://www.sinatrarb.com/&quot;, :target =&gt;&quot;_blank&quot; }
+            %img{ :alt =&gt; &quot;Powered by Sinatra&quot;, :title =&gt; &quot;Powered by Sinatra&quot;, :src =&gt; &quot;/images/sinatrapowered.png&quot;, :border =&gt; &quot;0&quot;, :style =&gt; &quot;vertical-align:middle;border:0;&quot; }
+</pre>
+
+    </div>
+
+   </div>
+
+
+  </div>
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+    <!-- if method_list -->
+
+
+
+
+  </div>
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+#header{
+ height : 159px;
+ margin : 0;
+ background : #fff;
+}
+#logo{
+	position: absolute;
+	display: none;
+	height : 159px;
+	width : 193px;
+	background : url(img/creationix-logo.jpg) no-repeat center;
+	padding : 0;
+	border : 0;
+	margin : 0;
+}
+#page {
+ background : #fff url('img/creationix-watermark.jpg') no-repeat fixed center; 
+}
+#content li{
+ list-style : url(img/bullet.png);
+}
+#content li li{
+ list-style : url(img/bullet2.png);
+}

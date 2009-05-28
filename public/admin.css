@@ -1,0 +1,39 @@
+html, body {
+  margin:0;
+  padding:0;
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+}
+
+#framework_logo {
+  background: transparent url(/images/framework_logo.png);
+  width: 266px;
+  height: 39px;
+  position:absolute;
+  right:5px;
+  top:1px;
+}
+#admin_title {
+  font-size: 26px;
+  line-height:30px;
+  margin:5px;
+  font-family: verdana, sans-serif;
+  color: #193e72;
+}
+#toolbar {
+  padding:3px;
+}
+.toolitem {
+  line-height:1em;
+  padding:2px 5px 2px 2px;
+}
+.toolitem .ui-icon {
+  float:left;
+  line-height:1em;
+}
+
+.wmd-preview {
+  border:1px solid #333;
+  padding:15px;
+  margin:5px 5px 5px 51%;
+}

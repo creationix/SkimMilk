@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>authorized? (app.rb)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app.rb, line 36</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authorized?</span>
+    <span class="ruby-ivar">@auth</span> <span class="ruby-operator">||=</span>  <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Auth</span><span class="ruby-operator">::</span><span class="ruby-constant">Basic</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>)
+    <span class="ruby-ivar">@auth</span>.<span class="ruby-identifier">provided?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@auth</span>.<span class="ruby-identifier">basic?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@auth</span>.<span class="ruby-identifier">credentials</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@auth</span>.<span class="ruby-identifier">credentials</span> <span class="ruby-operator">==</span> [<span class="ruby-value str">'admin'</span>, <span class="ruby-value str">'admin'</span>]
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
